@@ -26,6 +26,15 @@
                     <td>{{$post->published_at}}</td>
                     <td>{{$post->created_at}}</td>
                     <td><button type="button" class="btn btn-outline-success"><a href="{{ route('admin.post.edit',$post)}}">Edit</a></button></td>
+                    <td>
+                        <form action="{{route('admin.post.destroy',$post)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </td>
+                    
+                    
                 </tr>
                 @endforeach
             </tbody>
